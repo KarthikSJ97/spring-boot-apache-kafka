@@ -12,8 +12,16 @@ public class KafkaTopicConfig {
     @Value("${spring.kafka.topic.example}")
     private String exampleTopic;
 
+    @Value("${spring.kafka.topic.custom.object}")
+    private String customObjectTopic;
+
     @Bean
     public NewTopic exampleTopic() {
         return TopicBuilder.name(exampleTopic).build();
+    }
+
+    @Bean
+    public NewTopic customObjectTopic() {
+        return TopicBuilder.name(customObjectTopic).build();
     }
 }
